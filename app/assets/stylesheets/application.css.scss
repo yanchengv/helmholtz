@@ -30,6 +30,7 @@ body {
   height: 300px;
   width: 80%;
 }
+
 #body, #side_body {
   float: left;
   width: 45%;
@@ -49,7 +50,7 @@ body {
       padding: 5px 10px;
       text-decoration: none;
     }
-    &.selected a, a:hover {
+    &.current a, a:hover {
       background: #CCC;
     }
     ul {
@@ -62,7 +63,7 @@ body {
           padding: 5px 10px;
           text-decoration: none;
         }
-        &.selected a, a:hover {
+        &.current a, a:hover {
           background: #CCC;
         }
         ul {
@@ -88,7 +89,7 @@ body {
       text-decoration: none;
       font-weight:bold;
     }
-    &.selected a, a:hover {
+    &.current a, a:hover {
       background: #CCC;
     }
     ul {
@@ -102,7 +103,7 @@ body {
           text-decoration: none;
           font-weight:normal;
         }
-        &.selected a, a:hover {
+        &.current a, a:hover {
           background: #CCC;
         }
         ul {
@@ -116,3 +117,22 @@ body {
   }
 }
 
+#side_menu ul{
+  li{
+    ul{
+      li{
+        display: none;
+        &.current {
+          display: list-item;
+        }
+      }
+    }
+    &.current{
+      ul{
+        li{
+          display: list-item;
+        }
+      }
+    }
+  }
+}
