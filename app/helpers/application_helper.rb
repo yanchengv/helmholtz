@@ -58,4 +58,21 @@ module ApplicationHelper
     presenter.roots = refinery_menu_pages.select{|p| p.parent_id == @page.root.id}
     presenter
   end
+  def path_map
+    pathlist = []
+    parent_root_page = @page.root
+    pathlist.append(parent_root_page)
+    if parent_root_page.id == @page.parent_id
+      pathlist.append(@page)
+      return pathlist
+    else
+      for midLevelItem in parent_root_page.children
+        if midLevelItem.id == @page.parent_id
+          pathlist.append(midLevelItem)
+        end
+      end
+      pathlist.append(@page)
+      return pathlist
+    end
+  end
 end

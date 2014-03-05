@@ -1,5 +1,10 @@
 <section id='title'>
-  <%=raw page_title %>
+  <% path_map.each do |pathitem| %>
+      <%= link_to pathitem.title, pathitem.url %>
+      <% if pathitem != path_map.last%>
+          >>
+      <% end %>
+  <% end %>
 </section>
 <section id='body'>
   <%=raw @page.content_for(:body) %>
