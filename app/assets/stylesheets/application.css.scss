@@ -52,12 +52,13 @@ body {
 }
 #menu{
   background: #fff;
-  width: 965px;
+  width: 930px;
   line-height:24px;
   margin-left:auto;
   margin-right:auto;
+  position: relative;
   height: 43px;
-  padding:0 10px;
+  padding:0 10px 0 45px;
   border-bottom: 3px solid #00477c;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0,#1993d2), color-stop(1,#0085cb));
   background-image: -moz-linear-gradient(top,#1993d2,#0085cb);
@@ -94,6 +95,7 @@ body {
       color:#00589c;
       width: 202px;
       display:block;
+
     }
     ul li a:hover{
       color:#ffffff;
@@ -206,4 +208,16 @@ body {
       }
     }
   }
+}
+#home_icon{
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  z-index: 1;
+  left: 10px;
+  margin-top:8px;
+  background: url(icon_home.png) no-repeat;
+}
+#home_icon:hover{
+  background: url(icon_home_hover.png) no-repeat;
 }
