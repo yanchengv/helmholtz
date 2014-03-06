@@ -81,8 +81,12 @@ body {
       box-shadow: 0px 1px 1px rgba(0,0,0,.6);
       ul {
         display: none;
+        background: transparent;
+        box-shadow: none;
         li{
           display: none;
+          background: transparent;
+          box-shadow: none;
         }
       }
     }
