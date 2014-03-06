@@ -5,11 +5,10 @@
 </section>
 <section id='side_body'>
   <section id='title'>
+    <%= link_to "Home", '/' %>
     <% path_map.each do |pathitem| %>
+        >
         <%= link_to pathitem.title, pathitem.url %>
-        <% if pathitem != path_map.last%>
-            >
-        <% end %>
     <% end %>
   </section>
   <%=raw @page.content_for(:side_body) %>
