@@ -209,15 +209,16 @@ body {
     }
   }
 }
-#home_icon{
+#home_icon a{
   width: 28px;
   height: 28px;
+  display:inline-block;
   position: absolute;
   z-index: 1;
   left: 10px;
   margin-top:8px;
   background: url(icon_home.png) no-repeat;
 }
-#home_icon:hover{
+#home_icon a:hover{
   background: url(icon_home_hover.png) no-repeat;
 }
