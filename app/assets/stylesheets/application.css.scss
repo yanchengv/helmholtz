@@ -79,6 +79,12 @@ body {
       padding:5px;
       width: 222px;
       box-shadow: 0px 1px 1px rgba(0,0,0,.6);
+      ul {
+        display: none;
+        li{
+          display: none;
+        }
+      }
     }
     ul li a{
       color:#00589c;
@@ -95,11 +101,12 @@ body {
       text-decoration: none;
       color: #ffffff;
     }
-    &.selected a, a:hover {
+    &.current a, a:hover {
       background: #fff;
       color: #00589c;
       border-radius: 4px;
     }
+
   }
 }
 #menu .sfHover{
@@ -133,8 +140,7 @@ body {
       font-weight:bold;
       color: #515151;
     }
-    &.selected a, a:hover {
-
+    &.current a, a:hover {
     }
     ul {
       list-style: none;
@@ -149,8 +155,7 @@ body {
           background: url(bg_list_item_footer.png) no-repeat left center;
           padding: 0 0 5px 13px;
         }
-        &.selected a, a:hover {
-
+        &.current a, a:hover {
         }
         ul {
           display: none;
