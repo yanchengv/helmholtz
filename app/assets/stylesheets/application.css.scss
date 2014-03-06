@@ -26,8 +26,11 @@ body {
   line-height: 18px;
   margin: 0;
   padding: 0;
-  background: url(http://fitark.org:7500/files/58a8bb22e26a4112b67f2d56a313b9d2.png) repeat-x #e5e5e5; //first_page
-  //background: url(http://fitark.org:7500/files/065e9bd08a434ddca793b7e82d49fa91.png) repeat-x #e5e5e5; //homeppage
+  background: url(bg_main.png) repeat-x #e5e5e5; //first_page
+  //background: url(bg_main_homepage.png) repeat-x #e5e5e5; //homeppage
+}
+#home-page{
+  background: url(bg_main_homepage.png) repeat-x #e5e5e5; //homeppage
 }
 #page_container{
   width: 985px;
@@ -143,7 +146,7 @@ body {
           display: block;
           font-weight:normal;
           color: #00589c;
-          background: url(http://fitark.org:7500/files/032ffafabed7489ebcbfd41f1e879a5c.png) no-repeat left center;
+          background: url(bg_list_item_footer.png) no-repeat left center;
           padding: 0 0 5px 13px;
         }
         &.selected a, a:hover {
