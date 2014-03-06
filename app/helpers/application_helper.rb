@@ -62,6 +62,9 @@ module ApplicationHelper
     pathlist = []
     parent_root_page = @page.root
     pathlist.append(parent_root_page)
+    if @page.parent_id == nil
+      return pathlist
+    end
     if parent_root_page.id == @page.parent_id
       pathlist.append(@page)
       return pathlist
