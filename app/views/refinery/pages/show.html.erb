@@ -1,14 +1,16 @@
-<section id='title'>
-  <% path_map.each do |pathitem| %>
-      <%= link_to pathitem.title, pathitem.url %>
-      <% if pathitem != path_map.last%>
-          >>
-      <% end %>
-  <% end %>
-</section>
+<div style="position: absolute;right: -65px"><img src="http://fitark.org:7500/files/fb885b2eb8f8452d8d64f83c9c1e9c53.png"/></div>
+<div style="position: absolute;left: -70px"><img src="http://fitark.org:7500/files/9a42e4eda17a4186a5c3e40e6bfb0cad.png"/></div>
 <section id='body'>
   <%=raw @page.content_for(:body) %>
 </section>
 <section id='side_body'>
+  <section id='title'>
+    <% path_map.each do |pathitem| %>
+        <%= link_to pathitem.title, pathitem.url %>
+        <% if pathitem != path_map.last%>
+            >
+        <% end %>
+    <% end %>
+  </section>
   <%=raw @page.content_for(:side_body) %>
 </section>

@@ -13,68 +13,108 @@
  *= require_self
  *= require_tree .
  */
-
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
 body {
   background: #DDD;
   font-family: Verdana;
   font-size: 13px;
   line-height: 18px;
+  margin: 0;
+  padding: 0;
+  background: url(http://fitark.org:7500/files/58a8bb22e26a4112b67f2d56a313b9d2.png) repeat-x #e5e5e5; //first_page
+  //background: url(http://fitark.org:7500/files/065e9bd08a434ddca793b7e82d49fa91.png) repeat-x #e5e5e5; //homeppage
 }
-#sidemenu{
-  float: left;
-  height: 300px;
-  width: 20%;
+#page_container{
+  width: 985px;
+  margin: 0 auto;
+  position: relative;
 }
-#pagewithsidemenu {
-  float: right;
-  height: 300px;
-  width: 80%;
-}
-
 #body, #side_body {
   float: left;
-  width: 45%;
-  background: white;
   color: #333;
-  padding: 20px;
 }
-
+#body{
+  width: 205px;
+  padding: 26px 0 16px 16px;
+}
+#side_body {
+  padding: 15px;
+  width:734px;
+  margin: 0px;
+}
+#menu{
+  background: #fff;
+  width: 965px;
+  line-height:24px;
+  margin-left:auto;
+  margin-right:auto;
+  height: 43px;
+  padding:0 10px;
+  border-bottom: 3px solid #00477c;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0,#1993d2), color-stop(1,#0085cb));
+  background-image: -moz-linear-gradient(top,#1993d2,#0085cb);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1993d2', endColorstr='#0085cb', GradientType='0');
+  background:linear-gradient(to bottom,#1993d2,#0085cb);
+}
 #menu ul {
   list-style: none;
   padding: 0px;
+  margin-top:5px;
+  display:inline-block;
   li {
     float: left;
     margin-right: 10px;
+    position: relative;
+    ul{
+      position: absolute;
+      background: #fff;
+      padding:5px;
+      width: 222px;
+      box-shadow: 0px 1px 1px rgba(0,0,0,.6);
+    }
+    ul li a{
+      color:#00589c;
+      width: 202px;
+      display:block;
+    }
+    ul li a:hover{
+      color:#ffffff;
+      background:#00589c;
+    }
     a {
       display: block;
       padding: 5px 10px;
       text-decoration: none;
+      color: #ffffff;
     }
-    &.current a, a:hover {
-      background: #CCC;
-    }
-    ul {
-      list-style: none;
-      padding: 0px;
-      li {
-        float:none;
-        a {
-          display: block;
-          padding: 5px 10px;
-          text-decoration: none;
-        }
-        &.current a, a:hover {
-          background: #CCC;
-        }
-        ul {
-          display: none;
-          li{
-            display: none;
-          }
-        }
-      }
+    &.selected a, a:hover {
+      background: #fff;
+      color: #00589c;
+      border-radius: 4px;
     }
   }
+}
+#menu .sfHover{
+  background:#fff;
+  border-radius: 4px;
+}
+#menu ul .sfHover a{
+  color:#00589c;
+}
+#menu .sf-arrows ul .sf-with-ul:after,#menu .sf-arrows .sf-with-ul:after{
+  border-top-color: rgba(255,255,255,0);
+}
+
+#logo{
+  width: 985px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 #footer_menu ul {
@@ -82,29 +122,32 @@ body {
   padding: 0px;
   li {
     float: left;
-    margin-right: 10px;
+    width: 154px;
+    margin: 0 0 30px 10px;
     a {
       display: block;
-      padding: 5px 10px;
       text-decoration: none;
       font-weight:bold;
+      color: #515151;
     }
-    &.current a, a:hover {
-      background: #CCC;
+    &.selected a, a:hover {
+
     }
     ul {
       list-style: none;
       padding: 0px;
       li {
         float:none;
+        margin: 0;
         a {
           display: block;
-          padding: 5px 10px;
-          text-decoration: none;
           font-weight:normal;
+          color: #00589c;
+          background: url(http://fitark.org:7500/files/032ffafabed7489ebcbfd41f1e879a5c.png) no-repeat left center;
+          padding: 0 0 5px 13px;
         }
-        &.current a, a:hover {
-          background: #CCC;
+        &.selected a, a:hover {
+
         }
         ul {
           display: none;
@@ -116,7 +159,23 @@ body {
     }
   }
 }
-
+#page{
+  background:#fff;
+}
+#title a{
+  text-decoration: none;
+}
+#title a:hover{
+  text-decoration: underline;
+}
+.copyright{
+  color:#515151;
+  text-align: center;
+  margin: 0px;
+}
+.copyright a{
+  color:#515151;
+}
 #side_menu ul{
   li{
     ul{
