@@ -1,15 +1,19 @@
 <div style="position: absolute;right: -65px"><%= image_tag "bg_shadow_right.png" %></div>
 <div style="position: absolute;left: -70px"><%= image_tag "bg_shadow_left.png" %></div>
-<section id='body'>
+<div id="bg">
+<section id='title'>
+  <%= link_to "Home", '/' %>
+  <% path_map.each do |pathitem| %>
+      >
+      <%= link_to pathitem.title, pathitem.url %>
+  <% end %>
+</section>
+<section id='body' class="fl">
   <%=raw @page.content_for(:body) %>
 </section>
-<section id='side_body'>
-  <section id='title'>
-    <%= link_to "Home", '/' %>
-    <% path_map.each do |pathitem| %>
-        >
-        <%= link_to pathitem.title, pathitem.url %>
-    <% end %>
-  </section>
+<section id='side_body' class="fl">
+
   <%=raw @page.content_for(:side_body) %>
 </section>
+  <div class="clear"></div>
+</div>

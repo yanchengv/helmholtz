@@ -10,12 +10,15 @@
   <header id="header">
     <%= render "/refinery/header" -%>
   </header>
-  <section id="sidemenu">
+<div id="bg">
+  <section id="sidemenu" class="fl">
     <%= render "sidemenu/sidemenu" -%>
   </section>
-  <section id="pagewithsidemenu">
+  <section id="pagewithsidemenu" class="fl" style="width:780px">
     <%= yield %>
   </section>
+  <div class="clear"></div>
+</div>
   <footer>
     <%= render "/refinery/footer" -%>
   </footer>
