@@ -5,7 +5,11 @@
   <%= link_to "Home", '/' %>
   <% path_map.each do |pathitem| %>
       >
-      <%= link_to pathitem.title, pathitem.url %>
+      <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
+          <%= link_to pathitem.title, pathitem.url %>
+      <% else %>
+          <%= link_to pathitem.menu_title, pathitem.url %>
+      <% end %>
   <% end %>
 </section>
 <section id='body' class="fl">

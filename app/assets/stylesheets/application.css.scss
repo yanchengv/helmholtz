@@ -249,6 +249,9 @@ body {
   left: 10px;
   margin-top:8px;
   background: url(icon_home.png) no-repeat;
+  &.current{
+    background: url(icon_home_hover.png) no-repeat;
+  }
 }
 #home_icon a:hover{
   background: url(icon_home_hover.png) no-repeat;

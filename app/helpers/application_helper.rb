@@ -78,4 +78,10 @@ module ApplicationHelper
       return pathlist
     end
   end
+  def newest_pages
+    f = Refinery::Page.fast_menu
+    for item in f
+
+    end
+  end
 end

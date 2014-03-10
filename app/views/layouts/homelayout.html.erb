@@ -9,17 +9,14 @@
 <%= site_bar -%>
 <div id="page_container">
   <header id="header">
-    <%= render "/refinery/header" -%>
+    <%= render "/refinery/homeheader" -%>
   </header>
-<div id="bg">
-  <section id="sidemenu" class="fl">
-    <%= render "sidemenu/sidemenu" -%>
-  </section>
-  <section id="pagewithsidemenu" class="fl" style="width:780px">
-    <%= yield %>
-  </section>
-  <div class="clear"></div>
-</div>
+  <div id="bg">
+    <section id="pagewithsidemenu" class="fl" style="width:780px">
+      <%= yield %>
+    </section>
+    <div class="clear"></div>
+  </div>
   <footer>
     <%= render "/refinery/footer" -%>
   </footer>
