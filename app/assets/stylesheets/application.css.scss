@@ -158,6 +158,8 @@ body {
       text-decoration: none;
       font-weight:bold;
       color: #515151;
+      word-break: break-all;
+      word-wrap: break-word;
     }
     &.current a, a:hover {
     }
@@ -247,6 +249,10 @@ body {
     list-style: none;
     border-top: 1px solid #dcdcdc;
     padding: 0px;
+  li a{
+    word-break: break-all;
+    word-wrap: break-word;
+  }
   .current a{
     font-weight:bold;
     color: #000;
