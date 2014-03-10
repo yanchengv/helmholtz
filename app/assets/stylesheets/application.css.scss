@@ -303,3 +303,32 @@ body {
     color:#00589c ;
   }
 }
+.language{
+  margin-top:5px;
+}
+.language a{
+  color: #fff;
+  font-weight:normal;
+  text-decoration: none;
+  margin: 0 1px;
+   background: #0a8ccf;
+  padding:3px 5px 3px 5px ;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  -ms-border-radius:3px;
+  border-radius: 3px;
+}
+.language a:hover,.top_menu a:hover{
+  text-decoration: underline;
+}
+.top_menu{
+  margin-top:5px;
+  margin-right:6px;
+
+}
+.top_menu a{
+  color: #ffffff;
+  font-weight:normal;
+  text-decoration: none;
+  cursor:pointer;
+}
