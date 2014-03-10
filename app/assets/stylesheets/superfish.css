@@ -116,8 +116,12 @@
     background: #f0f0f0;
     padding: 5px;
 }
+.background_blue{
+    background:#00589c;
+}
+
 hr{
-    background:#c3c3c3;
+    border-top:1px solid #c3c3c3;
     border-bottom:0px;
 }
 .telephone{
@@ -131,4 +135,10 @@ hr{
 .mail{
     background:url(icon-adress-email.gif) no-repeat left center;
     padding-left:16px;
+}
+p{
+    margin:0;padding:0
+}
+.color_white{
+    color:#ffffff;
 }
