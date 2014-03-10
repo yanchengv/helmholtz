@@ -111,3 +111,24 @@
 .sf-arrows ul .sfHover > .sf-with-ul:after {
 	border-left-color: white;
 }
+/*-------------------------------------外用公共样式----------------------------------------*/
+.background_gray{
+    background: #f0f0f0;
+    padding: 5px;
+}
+hr{
+    background:#c3c3c3;
+    border-bottom:0px;
+}
+.telephone{
+    background:url(telefon.gif) no-repeat left center;
+    padding-left:16px;
+}
+.fax{
+    background:url(icon-adress-fax.gif) no-repeat left center;
+    padding-left:16px;
+}
+.mail{
+    background:url(icon-adress-email.gif) no-repeat left center;
+    padding-left:16px;
+}

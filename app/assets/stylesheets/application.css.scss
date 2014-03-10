@@ -51,12 +51,26 @@ body {
   padding: 15px;
   width:529px;
   margin: 0px;
+  overflow: hidden;
+  a{
+    color:#00589c ;
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
 }
 #side_body {
-  width: 185px;
+  width: 205px;
   margin-right:15px;
-  padding:10px;
-  background:#f0f0f0 ;
+  overflow: hidden;
+  a{
+    color:#00589c ;
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
 }
 #header{
   width: 985px;
