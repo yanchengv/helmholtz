@@ -7,6 +7,7 @@
 <section id="stickpagebody">
   <% for stickypage in sticky_pages %>
       <%=raw stickypage.content_for(:body) %>
+      <%=raw stickypage.content_for(:smallpage) %>
   <% end %>
 </section>
   <div class="clear"></div>
