@@ -1,14 +1,13 @@
-<section id='title'>
-  <%=raw page_title %>
-</section>
 <div style="position: absolute;right: -65px"><%= image_tag "bg_shadow_right.png" %></div>
 <div style="position: absolute;left: -70px"><%= image_tag "bg_shadow_left.png" %></div>
 <div id="bg">
 <section id='body'>
-  <%=raw @page.content_for(:body) %>
+  <%=raw top_page.content_for(:body) %>
 </section>
-<section id='side_body'>
-  <%=raw @page.content_for(:side_body) %>
+<section id="stickpagebody">
+  <% for stickypage in sticky_pages %>
+      <%=raw stickypage.content_for(:body) %>
+  <% end %>
 </section>
   <div class="clear"></div>
 </div>

@@ -84,4 +84,10 @@ module ApplicationHelper
 
     end
   end
+  def top_page
+    Refinery::Page.top_pages[0]
+  end
+  def sticky_pages
+    Refinery::Page.sticky_pages
+  end
 end
