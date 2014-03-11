@@ -1,0 +1,17 @@
+<div style="position: absolute;right: -65px"><%= image_tag "bg_shadow_right.png" %></div>
+<div style="position: absolute;left: -70px"><%= image_tag "bg_shadow_left.png" %></div>
+<div id="bg">
+  <section id='title'>
+    <%= link_to "Home", '/' %>
+    <% path_map.each do |pathitem| %>
+        >
+        <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
+            <%= link_to pathitem.title, pathitem.url %>
+        <% else %>
+            <%= link_to pathitem.menu_title, pathitem.url %>
+        <% end %>
+    <% end %>
+  </section>
+  <%= site_map.to_html %>
+  <div class="clear"></div>
+</div>
