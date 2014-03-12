@@ -74,20 +74,78 @@ body {
 .copyright a{
   color:#515151;
 }
-#side_menu ul{
+#side_menu ul{/*1st level*/
   li{
+    font-weight:normal;
+    color:#00589c;
+  /*2nd level do not display, except is current*/
     ul{
       li{
         display: none;
+        font-weight:normal;
+        color:#00589c;
         &.current {
           display: list-item;
+          font-weight:bold;
+          color: #000;
+          ul{/*2nd level is current, 3rd level can be seen*/
+            li{
+              display: list-item;
+              font-weight:normal;
+              color:#00589c;
+            }
+          }
+        }
+        /*3rd level do not display, except is current*/
+        ul{
+          li{
+            display: none;
+            font-weight:normal;
+            color:#00589c;
+            &.current {
+              display: list-item;
+              font-weight:bold;
+              color: #000;
+            }
+          }
         }
       }
     }
     &.current{
+      display: list-item;
+      font-weight:bold;
+      color: #000;
+      /*1st level is current, then 2nd level can be seen*/
       ul{
         li{
           display: list-item;
+          font-weight:normal;
+          color:#00589c;
+          &.current { /*2nd level is current, then 3rd level can be seen*/
+            display: list-item;
+            font-weight:bold;
+            color: #000;
+            ul{
+              li{
+                display: list-item;
+                font-weight:normal;
+                color:#00589c;
+              }
+            }
+          }
+          /*3rd level do not display, except is current*/
+          ul{
+            li{
+              display: none;
+              font-weight:normal;
+              color:#00589c;
+              &.current {
+                display: list-item;
+                font-weight:bold;
+                color: #000;
+              }
+            }
+          }
         }
       }
     }
@@ -333,14 +391,6 @@ body {
     word-break: break-all;
     word-wrap: break-word;
   }
-  .current a{
-    font-weight:bold;
-    color: #000;
-  }
-    .current ul li a{
-      font-weight:normal;
-      color:#00589c ;
-    }
   }
   li{
     border-bottom: 1px solid #dcdcdc;
@@ -348,10 +398,6 @@ body {
     ul{
       list-style: none;
       border-width: 0px;
-     .current a{
-        font-weight:bold;
-        color: #000;
-      }
     }
 
     ul li{
@@ -364,9 +410,6 @@ body {
     a{
       text-decoration: none;
     }
-  }
-  a{
-    color:#00589c ;
   }
 }
 .language{
