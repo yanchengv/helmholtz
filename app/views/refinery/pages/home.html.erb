@@ -7,7 +7,9 @@
     <% for stickypage in sticky_pages %>
         <div id="stickpagebody_box" class="fl">
           <%#=raw stickypage.content_for(:body) %>
+          <a href="/<%=stickypage.url[:path].join('/') %>">
           <%=raw stickypage.content_for(:smallpage) %>
+          </a>
         </div>
     <% end %>
 
