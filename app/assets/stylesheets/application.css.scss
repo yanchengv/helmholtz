@@ -24,7 +24,7 @@
 }
 body {
   background: #DDD;
-  font-family: Verdana;
+  font-family: Arial,sans-serif;
   font-size: 12px;
   line-height: 18px;
   margin: 0;
@@ -399,7 +399,30 @@ body {
   text-decoration: none;
   cursor:pointer;
 }
+#sitemap ul{
+  list-style: none;
+  line-height:24px;
+}
+#sitemap a{
+  background: url(link_intern.gif) no-repeat left;
+  padding-left:20px;
+  text-decoration: none;
+  color: #00589c;
+}
+#sitemap a:hover{
+  text-decoration: underline;
+}
+#sitemap {
+  ul li a{
+    font-weight:bold;
+  }
+  li{
+    ul li a{
+      font-weight:normal;
+    }
+  }
 
+}
 
 //}
 @media screen and (min-width:320px) and (max-width:600px){
