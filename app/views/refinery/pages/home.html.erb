@@ -1,14 +1,17 @@
-<div style="position: absolute;right: -65px"><%= image_tag "bg_shadow_right.png" %></div>
-<div style="position: absolute;left: -70px"><%= image_tag "bg_shadow_left.png" %></div>
-<div id="bg">
-<section id='body'>
+<div id="top_img">
+  <span id="arrow"><%= image_tag "arrow.png" %></span>
   <%=raw top_page.content_for(:body) %>
-</section>
-<section id="stickpagebody">
-  <% for stickypage in sticky_pages %>
-      <%=raw stickypage.content_for(:body) %>
-      <%=raw stickypage.content_for(:smallpage) %>
-  <% end %>
-</section>
-  <div class="clear"></div>
 </div>
+<section id='body' style="padding-left:0px;padding-right:0px;width: 997px">
+  <section id="stickpagebody">
+    <% for stickypage in sticky_pages %>
+        <div id="stickpagebody_box" class="fl">
+          <%#=raw stickypage.content_for(:body) %>
+          <%=raw stickypage.content_for(:smallpage) %>
+        </div>
+    <% end %>
+
+  </section>
+</section>
+
+<div class="clear"></div>
