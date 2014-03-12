@@ -78,6 +78,9 @@ body {
   li{
     font-weight:normal;
     color:#00589c;
+    a:hover{
+      color: #000;;
+    }
   /*2nd level do not display, except is current*/
     ul{
       li{

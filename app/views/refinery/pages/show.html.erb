@@ -3,12 +3,14 @@
 <div id="bg">
 <section id='title'>
   <%= link_to "Home", '/' %>
-  <% path_map.each do |pathitem| %>
-      >
-      <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
-          <%= link_to pathitem.title, pathitem.url %>
-      <% else %>
-          <%= link_to pathitem.menu_title, pathitem.url %>
+  <% if !path_map.nil? %>
+      <% path_map.each do |pathitem| %>
+          >
+          <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
+              <%= link_to pathitem.title, pathitem.url %>
+          <% else %>
+              <%= link_to pathitem.menu_title, pathitem.url %>
+          <% end %>
       <% end %>
   <% end %>
 </section>
