@@ -1,7 +1,9 @@
-<div id="top_img">
-  <span id="arrow"><%= image_tag "arrow.png" %></span>
-  <%=raw top_page.content_for(:body) %>
-</div>
+<a href="/<%=top_page.url[:path].join('/') %>">
+  <div id="top_img">
+    <span id="arrow"><%= image_tag "arrow.png" %></span>
+    <%=raw top_page.content_for(:body) %>
+  </div>
+</a>
 <section id='body' style="padding-left:0px;padding-right:0px;width: 997px">
   <section id="stickpagebody">
     <% for stickypage in sticky_pages %>
