@@ -1,7 +1,11 @@
 module ApplicationHelper
   require 'dalli'
+
+  def options
+    return { :namespace => "app_v1", :compress => true, :expires_in => 10.minute }
+  end
+
   def custommenu
-    options = { :namespace => "app_v1", :compress => true }
     dc = Dalli::Client.new('localhost:11211', options)
     value = dc.get('headmenu'+@page.root.id.to_s)
     if !value.nil?
@@ -26,7 +30,6 @@ module ApplicationHelper
   end
 
   def footer_menu
-    options = { :namespace => "app_v1", :compress => true }
     dc = Dalli::Client.new('localhost:11211', options)
     value = dc.get('footmenu')
     if !value.nil?
@@ -50,7 +53,6 @@ module ApplicationHelper
   end
 
   def side_menu
-    options = { :namespace => "app_v1", :compress => true }
     dc = Dalli::Client.new('localhost:11211', options)
     value = dc.get('sidemenu'+@page.id.to_s)
     if !value.nil?
