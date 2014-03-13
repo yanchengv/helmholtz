@@ -1,6 +1,6 @@
 module ApplicationHelper
   def custommenu
-    header_menu_items = Refinery::Menu.new(Refinery::Page.header_menu_pages)
+    header_menu_items = Refinery::Menu.new(@header_menu_pages)
     presenter = Refinery::Pages::MenuPresenter.new(header_menu_items, self)
 
     presenter.dom_id = 'menu'
@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def footer_menu
-    menu_items = Refinery::Menu.new(Refinery::Page.footer_menu_pages)
+    menu_items = Refinery::Menu.new(@footer_menu_pages)
 
     presenter = Refinery::Pages::MenuPresenter.new(menu_items, self)
     presenter.dom_id = "footer_menu"
@@ -31,10 +31,11 @@ module ApplicationHelper
   end
 
   def side_menu
-    if @page.root.children.where(:show_in_menu => true) == []
+    menu = Refinery::Menu.new @all_menu_pages
+    roots = menu.select{|p| p.parent_id == @page.root.id}
+    if roots == []
       return nil
     end
-    menu = refinery_menu_pages
     presenter = Refinery::Pages::MenuPresenter.new(menu, self)
     presenter.dom_id = "side_menu"
     presenter.css = "side_menu"
@@ -44,16 +45,7 @@ module ApplicationHelper
     presenter.selected_css = :current
     presenter.first_css = nil
     presenter.last_css = nil
-=begin
-    rootsitems = []
-    for pitem in refinery_menu_pages.items
-      if pitem.parent_id == @page.root.id
-        rootsitems.append pitem
-      end
-    end
-    roots = rootsitems
-=end
-    presenter.roots = refinery_menu_pages.select{|p| p.parent_id == @page.root.id}
+    presenter.roots = roots
     presenter
   end
 

@@ -1,5 +1,6 @@
 Refinery::PagesController.class_eval do
-  before_filter :path_map
+  before_filter :path_map, :menu_page_finder
+
   def path_map
     @pathlist = []
     parent_root_page = @page.root
@@ -23,4 +24,10 @@ Refinery::PagesController.class_eval do
     return
   end
 
+  def menu_page_finder
+    @all_menu_pages = Refinery::Page.fast_menu
+    @footer_menu_pages = @all_menu_pages.where(:show_in_footer => true)
+    @header_menu_pages = @all_menu_pages.where(:show_in_menu => true)
+
+  end
 end
