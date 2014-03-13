@@ -8,9 +8,9 @@ Refinery::Page.class_eval do
     where :is_top_page => true
   end
   def self.footer_menu_pages
-    where :show_in_footer => true
+    fast_menu.where(:show_in_footer => true)
   end
   def self.header_menu_pages
-    where :show_in_header => true
+    fast_menu.where(:show_in_menu => true)
   end
 end
