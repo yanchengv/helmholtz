@@ -120,20 +120,32 @@ body {
         }
       }
     }
-    &.current a{
+    &.current{
       display: list-item;
       font-weight:bold;
       color: #000;
+      a{
+        font-weight:bold;
+        color: #000;
+      }
       /*1st level is current, then 2nd level can be seen*/
       ul{
         li{
           display: list-item;
           font-weight:normal;
           color:#00589c;
+          a{
+            font-weight:normal;
+            color: #00589c;
+          }
           &.current { /*2nd level is current, then 3rd level can be seen*/
             display: list-item;
             font-weight:bold;
             color: #000;
+            a{
+              font-weight:bold;
+              color: #000;
+            }
             ul{
               li{
                 display: list-item;
@@ -232,10 +244,12 @@ body {
   padding: 0 20px 20px 20px;
   max-height: 298px;
   min-height:120px;
+  line-height:16px;
   overflow: hidden;
   background: #fff;
   position: relative;
   margin-right: 13px;
+  margin-top: 13px;
   margin-bottom: 13px;
   -moz-box-shadow: 0 0 2px 2px silver;
   -webkit-box-shadow: 0 0 2px 2px silver;
