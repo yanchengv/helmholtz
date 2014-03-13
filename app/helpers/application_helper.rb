@@ -2,7 +2,7 @@ module ApplicationHelper
   require 'dalli'
 
   def options
-    return { :namespace => "app_v1", :compress => true, :expires_in => 10.minute }
+    return { :namespace => "app_v1", :compress => true }#, :expires_in => 10.minute }
   end
 
   def custommenu
