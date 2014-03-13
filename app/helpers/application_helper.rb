@@ -12,6 +12,7 @@ module ApplicationHelper
     presenter.first_css = :first
     presenter.last_css = :last
     #presenter.list_tag_css = 'sfmenu'
+    presenter.max_depth = 2
     presenter.to_html
   end
 
@@ -27,6 +28,7 @@ module ApplicationHelper
     presenter.selected_css = :current
     presenter.first_css = nil
     presenter.last_css = nil
+    presenter.max_depth = 2
     presenter.to_html
   end
 
@@ -46,6 +48,12 @@ module ApplicationHelper
     presenter.first_css = nil
     presenter.last_css = nil
     presenter.roots = roots
+    if @pathlist.nil?
+      plist = path_map
+      presenter.max_depth = plist
+    else
+      presenter.max_depth = @pathlist.length
+    end
     presenter.to_html
   end
 
