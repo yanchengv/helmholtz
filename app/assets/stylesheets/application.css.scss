@@ -57,11 +57,12 @@ body {
 }
 #title{
   background: #fff;
-  padding: 10px 0px 12px 15px;
+  padding: 25px 0px 12px 15px;
   font-size: 12px;
 }
 #title a{
   text-decoration: none;
+  color: #00589c;
 }
 #title a:hover{
   text-decoration: underline;
@@ -78,6 +79,11 @@ body {
   li{
     font-weight:normal;
     color:#00589c;
+    a{
+      color:#00589c;
+      display:inline-block;
+      padding: 2px 0px;
+    }
     a:hover{
       color: #000;;
     }
@@ -114,7 +120,7 @@ body {
         }
       }
     }
-    &.current{
+    &.current a{
       display: list-item;
       font-weight:bold;
       color: #000;
@@ -234,11 +240,18 @@ body {
   -moz-box-shadow: 0 0 2px 2px silver;
   -webkit-box-shadow: 0 0 2px 2px silver;
   box-shadow: 0 0 2px 2px silver;
+  word-break:break-all;
 }
 #stickpagebody_box img{
   width: 320px;
   height: 120px;
   margin-left:-20px;
+}
+#stickpagebody_box a{
+  color: #000;
+}
+#stickpagebody_box a:hover{
+  text-decoration: none;
 }
 #side_body {
   width: 205px;
@@ -283,6 +296,10 @@ body {
     float: left;
     margin-right: 10px;
     position: relative;
+    a{
+      font-size: 15px;
+      font-family:verdana;
+    }
     ul{
       position: absolute;
       background: #fff;
@@ -303,6 +320,7 @@ body {
     ul li a{
       color:#00589c;
       width: 202px;
+      font-size: 12px;
       display:block;
       word-break: break-all;
       word-wrap: break-word;

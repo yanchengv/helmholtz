@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140311072508) do
+ActiveRecord::Schema.define(:version => 20140313033552) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20140311072508) do
     t.datetime "updated_at",                             :null => false
     t.boolean  "is_sticky_page",      :default => false
     t.boolean  "is_top_page",         :default => false
+    t.boolean  "show_in_footer",      :default => true
   end
 
   add_index "refinery_pages", ["depth"], :name => "index_refinery_pages_on_depth"

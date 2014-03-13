@@ -16,6 +16,12 @@
       <%= f.check_box :is_top_page %> Show this page in the top of home page
     </div>
     <div class='field'>
+        <span class='label_with_help'>
+            <%= f.label :show_in_footer, "Show in footer" %>
+        </span>
+      <%= f.check_box :show_in_footer %> Show this page in the footer menu
+    </div>
+    <div class='field'>
       <span class='label_with_help'>
         <%= f.label :parent_id, t('.parent_page') %>
         <%= refinery_help_tag t('.parent_page_help') %>
