@@ -1,6 +1,7 @@
 module ApplicationHelper
   def custommenu
-    presenter = Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self)
+    header_menu_items = Refinery::Menu.new(Refinery::Page.header_menu_pages)
+    presenter = Refinery::Pages::MenuPresenter.new(header_menu_items, self)
 
     presenter.dom_id = 'menu'
     presenter.css = 'menu clearfix'

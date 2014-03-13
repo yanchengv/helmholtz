@@ -22,6 +22,12 @@
       <%= f.check_box :show_in_footer %> Show this page in the footer menu
     </div>
     <div class='field'>
+        <span class='label_with_help'>
+            <%= f.label :show_in_header, "Show in header" %>
+        </span>
+      <%= f.check_box :show_in_header %> Show this page in the header menu
+    </div>
+    <div class='field'>
       <span class='label_with_help'>
         <%= f.label :parent_id, t('.parent_page') %>
         <%= refinery_help_tag t('.parent_page_help') %>
