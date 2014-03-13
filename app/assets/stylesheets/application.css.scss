@@ -78,6 +78,11 @@ body {
   li{
     font-weight:normal;
     color:#00589c;
+    a{
+      color:#00589c;
+      display:inline-block;
+      padding: 2px 0px;
+    }
     a:hover{
       color: #000;;
     }
@@ -283,6 +288,10 @@ body {
     float: left;
     margin-right: 10px;
     position: relative;
+    a{
+      font-size: 16px;
+      font-family:verdana;
+    }
     ul{
       position: absolute;
       background: #fff;
