@@ -12,7 +12,7 @@ module ApplicationHelper
     presenter.first_css = :first
     presenter.last_css = :last
     #presenter.list_tag_css = 'sfmenu'
-    presenter
+    presenter.to_html
   end
 
   def footer_menu
@@ -27,14 +27,14 @@ module ApplicationHelper
     presenter.selected_css = :current
     presenter.first_css = nil
     presenter.last_css = nil
-    presenter
+    presenter.to_html
   end
 
   def side_menu
     menu = Refinery::Menu.new @all_menu_pages
     roots = menu.select{|p| p.parent_id == @page.root.id}
     if roots == []
-      return nil
+      return ''
     end
     presenter = Refinery::Pages::MenuPresenter.new(menu, self)
     presenter.dom_id = "side_menu"
@@ -46,7 +46,7 @@ module ApplicationHelper
     presenter.first_css = nil
     presenter.last_css = nil
     presenter.roots = roots
-    presenter
+    presenter.to_html
   end
 
   def path_map
