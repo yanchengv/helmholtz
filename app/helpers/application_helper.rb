@@ -1,6 +1,13 @@
 module ApplicationHelper
+  require 'dalli'
   def custommenu
-    header_menu_items = Refinery::Menu.new(@header_menu_pages)
+    options = { :namespace => "app_v1", :compress => true }
+    dc = Dalli::Client.new('localhost:11211', options)
+    value = dc.get('headmenu'+@page.root.id.to_s)
+    if !value.nil?
+      return value
+    end
+    header_menu_items = Refinery::Menu.new @header_menu_pages
     presenter = Refinery::Pages::MenuPresenter.new(header_menu_items, self)
 
     presenter.dom_id = 'menu'
@@ -13,12 +20,20 @@ module ApplicationHelper
     presenter.last_css = :last
     #presenter.list_tag_css = 'sfmenu'
     presenter.max_depth = 2
-    presenter.to_html
+    value = presenter.to_html
+    dc.set('headmenu'+@page.root.id.to_s, value)
+    return value
   end
 
   def footer_menu
-    menu_items = Refinery::Menu.new(@footer_menu_pages)
+    options = { :namespace => "app_v1", :compress => true }
+    dc = Dalli::Client.new('localhost:11211', options)
+    value = dc.get('footmenu')
+    if !value.nil?
+      return value
+    end
 
+    menu_items = Refinery::Menu.new @footer_menu_pages
     presenter = Refinery::Pages::MenuPresenter.new(menu_items, self)
     presenter.dom_id = "footer_menu"
     presenter.css = "footer_menu"
@@ -29,13 +44,22 @@ module ApplicationHelper
     presenter.first_css = nil
     presenter.last_css = nil
     presenter.max_depth = 2
-    presenter.to_html
+    value = presenter.to_html
+    dc.set('footmenu', value)
+    return value
   end
 
   def side_menu
+    options = { :namespace => "app_v1", :compress => true }
+    dc = Dalli::Client.new('localhost:11211', options)
+    value = dc.get('sidemenu'+@page.id.to_s)
+    if !value.nil?
+      return value
+    end
     menu = Refinery::Menu.new @all_menu_pages
     roots = menu.select{|p| p.parent_id == @page.root.id}
     if roots == []
+      dc.set('sidemenu'+@page.id.to_s, '')
       return ''
     end
     presenter = Refinery::Pages::MenuPresenter.new(menu, self)
@@ -54,7 +78,9 @@ module ApplicationHelper
     else
       presenter.max_depth = @pathlist.length
     end
-    presenter.to_html
+    value = presenter.to_html
+    dc.set('sidemenu'+@page.id.to_s, value)
+    return value
   end
 
   def path_map

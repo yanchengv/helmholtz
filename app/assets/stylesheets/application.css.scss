@@ -151,6 +151,10 @@ body {
                 display: list-item;
                 font-weight:normal;
                 color:#00589c;
+                a{
+                  font-weight:normal;
+                  color: #00589c;
+                }
               }
             }
           }
@@ -160,10 +164,18 @@ body {
               display: none;
               font-weight:normal;
               color:#00589c;
+              a{
+                font-weight:normal;
+                color: #00589c;
+              }
               &.current {
                 display: list-item;
                 font-weight:bold;
                 color: #000;
+                a{
+                  font-weight:bold;
+                  color: #000;
+                }
               }
             }
           }
