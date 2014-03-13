@@ -57,11 +57,12 @@ body {
 }
 #title{
   background: #fff;
-  padding: 10px 0px 12px 15px;
+  padding: 25px 0px 12px 15px;
   font-size: 12px;
 }
 #title a{
   text-decoration: none;
+  color: #00589c;
 }
 #title a:hover{
   text-decoration: underline;
@@ -289,7 +290,7 @@ body {
     margin-right: 10px;
     position: relative;
     a{
-      font-size: 16px;
+      font-size: 15px;
       font-family:verdana;
     }
     ul{
@@ -312,6 +313,7 @@ body {
     ul li a{
       color:#00589c;
       width: 202px;
+      font-size: 12px;
       display:block;
       word-break: break-all;
       word-wrap: break-word;
