@@ -1,9 +1,6 @@
 <div style="position: absolute;right: -65px"><%= image_tag "bg_shadow_right.png" %></div>
 <div style="position: absolute;left: -70px"><%= image_tag "bg_shadow_left.png" %></div>
 <div id="bg">
-
-
-<section id='body' class="fl" style="width:529px;">
   <section id='title'>
     <%= link_to "Home", '/' %>
     <% if !path_map.nil? %>
@@ -17,11 +14,13 @@
         <% end %>
     <% end %>
   </section>
-  <%=raw @page.content_for(:body) %>
-</section>
-<section id='side_body' class="fl" style="width:205px;margin-top:30px;">
 
-  <%=raw @page.content_for(:side_body) %>
-</section>
+  <section id='body' class="fl" style="width:630px;">
+    <%=raw @page.content_for(:body) %>
+  </section>
+  <section id='side_body' class="fl" style="width:308px;">
+
+    <%=raw @page.content_for(:side_body) %>
+  </section>
   <div class="clear"></div>
 </div>

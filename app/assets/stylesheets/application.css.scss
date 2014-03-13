@@ -185,10 +185,8 @@ body {
 
 }
 #body{
-  padding: 15px;
+  padding:0 15px 15px 15px;
   line-height:24px;
-  min-width:529px;
-  max-width:740px;
   margin: 0px;
   overflow: hidden;
   a{
@@ -256,9 +254,8 @@ body {
   text-decoration: none;
 }
 #side_body {
-  min-width: 205px;
   margin-right:15px;
-  margin-top:30px;
+  margin-top:0px;
   overflow: hidden;
   a{
     color:#00589c ;
