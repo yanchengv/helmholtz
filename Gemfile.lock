@@ -193,7 +193,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 3.2.15)
-  refinerycms (~> 2.1.0)
+  refinerycms (= 2.1.1)
   refinerycms-acts-as-indexed (~> 1.0.0)
   sass-rails (~> 3.2.3)
   sqlite3
