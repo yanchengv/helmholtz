@@ -1,5 +1,5 @@
 upstream myapp {
-  server  unix:/tmp/unicorn.helmholtz.sock;
+  server  unix:/home/ubuntu/helmholtz/unicorn.helmholtz.sock;
 }
 server {
     listen   8900;

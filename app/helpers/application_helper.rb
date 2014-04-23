@@ -1,15 +1,23 @@
 module ApplicationHelper
   require 'dalli'
-
+  def debug_mode
+    return 1
+  end
   def options
-    return { :namespace => "app_v1", :compress => true }#, :expires_in => 10.minute }
+    return { :namespace => "app_v1", :compress => true , :expires_in => 1.seconds }
   end
 
   def custommenu
-    dc = Dalli::Client.new('localhost:11211', options)
-    value = dc.get('headmenu'+@page.root.id.to_s)
-    if !value.nil?
-      return value
+    if !debug_mode
+      if @page.nil?
+        dc = Dalli::Client.new('localhost:11211', options)
+        return dc.get('headmenu1')
+      end
+      dc = Dalli::Client.new('localhost:11211', options)
+      value = dc.get('headmenu'+@page.root.id.to_s)
+      if !value.nil?
+        return value
+      end
     end
     header_menu_items = Refinery::Menu.new @header_menu_pages
     presenter = Refinery::Pages::MenuPresenter.new(header_menu_items, self)
@@ -25,17 +33,20 @@ module ApplicationHelper
     #presenter.list_tag_css = 'sfmenu'
     presenter.max_depth = 2
     value = presenter.to_html
-    dc.set('headmenu'+@page.root.id.to_s, value)
+    if !debug_mode
+      dc.set('headmenu'+@page.root.id.to_s, value)
+    end
     return value
   end
 
   def footer_menu
-    dc = Dalli::Client.new('localhost:11211', options)
-    value = dc.get('footmenu')
-    if !value.nil?
-      return value
+    if !debug_mode
+      dc = Dalli::Client.new('localhost:11211', options)
+      value = dc.get('footmenu')
+      if !value.nil?
+        return value
+      end
     end
-
     menu_items = Refinery::Menu.new @footer_menu_pages
     presenter = Refinery::Pages::MenuPresenter.new(menu_items, self)
     presenter.dom_id = "footer_menu"
@@ -48,20 +59,26 @@ module ApplicationHelper
     presenter.last_css = nil
     presenter.max_depth = 2
     value = presenter.to_html
-    dc.set('footmenu', value)
+    if !debug_mode
+      dc.set('footmenu', value)
+    end
     return value
   end
 
   def side_menu
-    dc = Dalli::Client.new('localhost:11211', options)
-    value = dc.get('sidemenu'+@page.id.to_s)
-    if !value.nil?
-      return value
+    if !debug_mode
+      dc = Dalli::Client.new('localhost:11211', options)
+      value = dc.get('sidemenu'+@page.id.to_s)
+      if !value.nil?
+        return value
+      end
     end
     menu = Refinery::Menu.new @all_menu_pages
     roots = menu.select{|p| p.parent_id == @page.root.id}
     if roots == []
-      dc.set('sidemenu'+@page.id.to_s, '')
+      if !debug_mode
+        dc.set('sidemenu'+@page.id.to_s, '')
+      end
       return ''
     end
     presenter = Refinery::Pages::MenuPresenter.new(menu, self)
@@ -81,7 +98,9 @@ module ApplicationHelper
       presenter.max_depth = @pathlist.length
     end
     value = presenter.to_html
-    dc.set('sidemenu'+@page.id.to_s, value)
+    if !debug_mode
+      dc.set('sidemenu'+@page.id.to_s, value)
+    end
     return value
   end
 
