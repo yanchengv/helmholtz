@@ -32,7 +32,7 @@ module ApplicationHelper
     presenter.last_css = :last
     #presenter.list_tag_css = 'sfmenu'
     presenter.max_depth = 2
-    value = presenter.render_html_without_child(@page.id)
+    value = presenter.render_html_without_child(@page.root.id)
     if !debug_mode
       dc.set('headmenu'+@page.root.id.to_s, value)
     end
