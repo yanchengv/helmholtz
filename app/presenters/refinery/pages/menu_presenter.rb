@@ -40,6 +40,10 @@ module Refinery
         render_menu_without_child(roots,pageid) if roots.present?
       end
 
+      def to_sidebar_custom_html
+        render_sidebar_custom_menu(roots) if roots.present?
+      end
+
       private
       def render_menu(items)
         content_tag(menu_tag, :id => dom_id, :class => css) do
@@ -50,6 +54,12 @@ module Refinery
       def render_menu_without_child(items,pageid)
         content_tag(menu_tag, :id => dom_id, :class => css) do
           render_menu_items_without_child(items,pageid)
+        end
+      end
+
+      def render_sidebar_custom_menu(items)
+        content_tag(menu_tag, :id => dom_id, :class => css) do
+          render_sidebar_custom_menu_items(items)
         end
       end
 
@@ -68,6 +78,16 @@ module Refinery
           content_tag(list_tag) do
             menu_items.each_with_index.inject(ActiveSupport::SafeBuffer.new) do |buffer, (item, index)|
               buffer << render_menu_item_without_child(item, index,pageid)
+            end
+          end
+        end
+      end
+
+      def render_sidebar_custom_menu_items(menu_items)
+        if menu_items.present?
+          content_tag(list_tag) do
+            menu_items.each_with_index.inject(ActiveSupport::SafeBuffer.new) do |buffer, (item, index)|
+              buffer << render_sidebar_custom_menu_item(item, index)
             end
           end
         end
@@ -93,6 +113,19 @@ module Refinery
         end
       end
 
+      def render_sidebar_custom_menu_item(menu_item, index)
+        content_tag(list_item_tag, :class => menu_item_css(menu_item, index)) do
+          buffer = ActiveSupport::SafeBuffer.new
+          thispage = Refinery::Page.find(menu_item.original_id)
+          if thispage.sidebar_html.nil? || thispage.sidebar_html == ""
+            buffer << link_to(menu_item.title, context.refinery.url_for(menu_item.url))
+          else
+            buffer << ActiveSupport::SafeBuffer.new(thispage.sidebar_html)
+          end
+          buffer << render_menu_items(menu_item_children(menu_item))
+          buffer
+        end
+      end
       # Determines whether any item underneath the supplied item is the current item according to rails.
       # Just calls selected_item? for each descendant of the supplied item
       # unless it first quickly determines that there are no descendants.

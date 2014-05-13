@@ -97,7 +97,7 @@ module ApplicationHelper
     else
       presenter.max_depth = @pathlist.length
     end
-    value = presenter.to_html
+    value = presenter.to_sidebar_custom_html
     if !debug_mode
       dc.set('sidemenu'+@page.id.to_s, value)
     end

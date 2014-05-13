@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140313040239) do
+ActiveRecord::Schema.define(:version => 20140512175948) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20140313040239) do
     t.boolean  "is_top_page",         :default => false
     t.boolean  "show_in_footer",      :default => true
     t.boolean  "show_in_header",      :default => true
+    t.text     "sidebar_html"
   end
 
   add_index "refinery_pages", ["depth"], :name => "index_refinery_pages_on_depth"

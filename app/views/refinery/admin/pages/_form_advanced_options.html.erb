@@ -60,6 +60,14 @@
       </span>
       <%= f.text_field :menu_title, :style=> 'width:400px;' %>
     </div>
+
+    <div class='field'>
+      <span class='label_with_help'>
+        <%= f.label :sidebar_html, "side bar html" %>
+      </span>
+      <%= f.text_field :sidebar_html, :style=> 'width:400px;' %>
+    </div>
+
     <% if Refinery::Pages.use_custom_slugs %>
     <div class='field'>
       <span class='label_with_help'>

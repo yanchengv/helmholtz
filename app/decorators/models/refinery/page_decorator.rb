@@ -1,5 +1,5 @@
 Refinery::Page.class_eval do
-  attr_accessible :is_sticky_page, :is_top_page, :show_in_footer, :show_in_header
+  attr_accessible :is_sticky_page, :is_top_page, :show_in_footer, :show_in_header,:sidebar_html
 
   def self.sticky_pages
     where :is_sticky_page => true
