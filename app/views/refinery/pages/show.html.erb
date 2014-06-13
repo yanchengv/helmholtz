@@ -3,33 +3,33 @@
 <div id="bg">
 
 
-<section id='body' class="fl" style="width:529px;">
-  <section id='title'>
-    <%= link_to "首页", '/' %>
-    <% if !path_map.nil? %>
-        <% path_map.each do |pathitem| %>
-            >
-            <% if pathitem.id == @page.id %>
-                <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
-                    <%= pathitem.title %>
-                <% else %>
-                    <%= pathitem.menu_title %>
-                <% end %>
-            <% else %>
-                <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
-                    <%= link_to pathitem.title, pathitem.url %>
-                <% else %>
-                    <%= link_to pathitem.menu_title, pathitem.url %>
-                <% end %>
-            <% end %>
-        <% end %>
-    <% end %>
+  <section id='body' class="fl" style="width:529px;">
+    <section id='title'>
+      <%= link_to "首页", '/' %>
+      <% if !path_map.nil? %>
+          <% path_map.each do |pathitem| %>
+              >
+              <% if pathitem.id == @page.id %>
+                  <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
+                      <%= pathitem.title %>
+                  <% else %>
+                      <%= pathitem.menu_title %>
+                  <% end %>
+              <% else %>
+                  <% if pathitem.menu_title.nil? || pathitem.menu_title == ""  %>
+                      <%= link_to pathitem.title, pathitem.url %>
+                  <% else %>
+                      <%= link_to pathitem.menu_title, pathitem.url %>
+                  <% end %>
+              <% end %>
+          <% end %>
+      <% end %>
+    </section>
+    <%=raw @page.content_for(:body) %>
   </section>
-  <%=raw @page.content_for(:body) %>
-</section>
-<section id='side_body' class="fl" style="width:205px;margin-top:30px;">
+  <section id='side_body' class="fl" style="width:205px;margin-top:30px;">
 
-  <%=raw @page.content_for(:side_body) %>
-</section>
+    <%=raw @page.content_for(:side_body) %>
+  </section>
   <div class="clear"></div>
 </div>
