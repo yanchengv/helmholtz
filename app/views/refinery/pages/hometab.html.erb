@@ -4,12 +4,7 @@
   <% for stickypage in sticky_pages %>
       <% if !stickypage.content_for(:hometabtitle).nil?%>
       <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')%>
-      <%if isactive==0%>
-          <li class="active"><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
-      <%else%>
           <li><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
-      <% end %>
-      <% isactive +=1%>
   <% end %>
   <% end %>
 </ul>
@@ -18,10 +13,16 @@
   <section id="stickpagebody">
     <!-- Tab panes -->
     <div class="tab-content">
+      <% isactive=0%>
       <% for stickypage in sticky_pages %>
           <% if !stickypage.content_for(:hometabtitle).nil?%>
           <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')  %>
-          <div class="tab-pane" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+              <%if isactive==0%>
+          <div class="tab-pane active" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+              <%else%>
+                  <div class="tab-pane" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+              <% end %>
+              <% isactive +=1%>
       <% end %>
       <% end %>
     </div>
