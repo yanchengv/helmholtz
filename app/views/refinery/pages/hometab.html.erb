@@ -1,0 +1,72 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <% isactive=0%>
+  <% for stickypage in sticky_pages %>
+      <% if !stickypage.content_for(:hometabtitle).nil?%>
+      <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')%>
+      <%if isactive==0%>
+          <li class="active"><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
+      <%else%>
+          <li><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
+      <% end %>
+      <% isactive +=1%>
+  <% end %>
+  <% end %>
+</ul>
+
+<section id='body' style="padding-left:0px;padding-right:0px;width: 997px">
+  <section id="stickpagebody">
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <% for stickypage in sticky_pages %>
+          <% if !stickypage.content_for(:hometabtitle).nil?%>
+          <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')  %>
+          <div class="tab-pane" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+      <% end %>
+      <% end %>
+    </div>
+  </section>
+</section>
+
+<!--轮播-->
+
+<div id="carousel-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% dataslideto=0%>
+    <% for stickypage in sticky_pages %>
+        <% if !stickypage.content_for(:homeslide).nil?%>
+        <li data-target="#carousel-generic" data-slide-to="<%= dataslideto%>"  class=""></li>
+        <% dataslideto+=1%>
+    <%end%>
+    <%end%>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% index=0%>
+    <% for stickypage in sticky_pages %>
+        <% if !stickypage.content_for(:homeslide).nil?%>
+        <%if index==0%>
+            <div class="item active">
+              <%= raw stickypage.content_for(:homeslide)%>
+            </div>
+        <%else%>
+            <div class="item ">
+              <%= raw stickypage.content_for(:homeslide)%>
+            </div>
+        <%end%>
+        <% index+=1%>
+    <% end %>
+
+    <% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
