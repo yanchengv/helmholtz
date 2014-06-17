@@ -1,35 +1,45 @@
+<div class="bottom_bg">
+  <div style="width: 624px;margin: 0 14px 0 10px;padding-bottom: 30px;float:left;display:inline;">
+  <p style="font-size: 20px;margin-top:10px;margin-bottom:10px;font-family: Arial,sans-serif;line-height: 22px;padding-bottom: 5px;">Shortcuts</p>
 <div id="hometabtitle">
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <% isactive=0%>
-  <% for stickypage in sticky_pages %>
-      <% if !stickypage.content_for(:hometabtitle).nil?%>
-      <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')%>
-          <li><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
-  <% end %>
-  <% end %>
-</ul>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <% istabactive=0%>
+    <% for stickypage in sticky_pages %>
+
+        <% if !stickypage.content_for(:hometabtitle).nil?%>
+            <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')%>
+            <%if istabactive==0%>
+                <li class="active"><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
+            <% else%>
+            <li ><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
+        <% end %>
+            <% istabactive+=1%>
+        <% end %>
+    <% end %>
+  </ul>
 </div>
-<section id='body' style="padding-left:0px;padding-right:0px;width: 997px">
+<section id='body' class="tab_con">
   <section id="stickpagebody">
     <!-- Tab panes -->
     <div class="tab-content">
       <% isactive=0%>
       <% for stickypage in sticky_pages %>
           <% if !stickypage.content_for(:hometabtitle).nil?%>
-          <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')  %>
+              <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')  %>
               <%if isactive==0%>
-          <div class="tab-pane active" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+                  <div class="tab-pane active" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
               <%else%>
                   <div class="tab-pane" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
               <% end %>
               <% isactive +=1%>
-      <% end %>
+          <% end %>
       <% end %>
     </div>
   </section>
 </section>
-
+<div style="clear:both"></div>
+  <p style="font-size: 20px;margin-bottom:10px;font-family: Arial,sans-serif;line-height: 22px;margin-top:30px;padding-bottom: 5px;">18 Research Centres</p>
 <!--轮播-->
 
 <div id="carousel-generic" class="carousel slide" data-ride="carousel">
@@ -38,9 +48,9 @@
     <% dataslideto=0%>
     <% for stickypage in sticky_pages %>
         <% if !stickypage.content_for(:homeslide).nil?%>
-        <li data-target="#carousel-generic" data-slide-to="<%= dataslideto%>"  class=""></li>
-        <% dataslideto+=1%>
-    <%end%>
+            <li data-target="#carousel-generic" data-slide-to="<%= dataslideto%>"  class=""></li>
+            <% dataslideto+=1%>
+        <%end%>
     <%end%>
   </ol>
 
@@ -49,26 +59,61 @@
     <% index=0%>
     <% for stickypage in sticky_pages %>
         <% if !stickypage.content_for(:homeslide).nil?%>
-        <%if index==0%>
-            <div class="item active">
-              <%= raw stickypage.content_for(:homeslide)%>
-            </div>
-        <%else%>
-            <div class="item ">
-              <%= raw stickypage.content_for(:homeslide)%>
-            </div>
-        <%end%>
-        <% index+=1%>
-    <% end %>
+            <%if index==0%>
+                <div class="item active">
+                  <%= raw stickypage.content_for(:homeslide)%>
+                </div>
+            <%else%>
+                <div class="item ">
+                  <%= raw stickypage.content_for(:homeslide)%>
+                </div>
+            <%end%>
+            <% index+=1%>
+        <% end %>
 
     <% end %>
   </div>
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="prev_arrow"></span>
   </a>
   <a class="right carousel-control" href="#carousel-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="next_arrow"></span>
   </a>
+</div>
+    <p style="font-size: 20px;margin-bottom:10px;font-family: Arial,sans-serif;line-height: 22px;margin-top:30px;padding-bottom: 5px;">Be Well-Informed</p>
+    <% for stickypage in sticky_pages %>
+        <%if !stickypage.content_for(:media).nil?%>
+            <%=raw stickypage.content_for(:media) %>
+        <% end %>
+    <% end %>
+
+
+</div>
+<div style="padding: 38px 10px 30px 0;margin-top: 52px;float:left;width:300px;display:inline;">
+  <p style="font-size: 20px;margin-bottom:10px;font-family: Arial,sans-serif;line-height: 22px;margin-top:5px;padding-bottom: 5px;">Impact & Achievements</p>
+  <div class="impack">
+  <% for stickypage in sticky_pages %>
+      <%if !stickypage.content_for(:Impact).nil?%>
+          <div id="Impack_box" class="fl">
+            <a href="/<%=stickypage.url[:path].join('/') %>">
+              <%=raw stickypage.content_for(:Impact) %>
+            </a>
+          </div>
+      <% end %>
+  <% end %>
+  </div>
+
+  <% for stickypage in sticky_pages %>
+      <%if !stickypage.content_for(:news).nil?%>
+          <%=raw stickypage.content_for(:news) %>
+      <% end %>
+  <% end %>
+
+
+
+</div>
+
+
 </div>

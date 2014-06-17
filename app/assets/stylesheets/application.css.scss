@@ -551,11 +551,10 @@ body {
 #hometabtitle{width: 612px;}
 #hometabtitle .nav-tabs > li.active > a{
   background: url(bg_tabs_selected.png) no-repeat center center;
-  padding: 3px 5px;
+  padding: 0px 5px;
   width: 116px;
   height: 40px;
   font-size: 12px !important;
-  line-height:30px;
   vertical-align:middle;
   color: #ffffff;
   text-align:center;
@@ -566,14 +565,75 @@ body {
   width: 116px;
   margin-bottom:1px;
   height: 40px;
-  padding: 3px 5px;
+  padding: 0 5px;
   text-align: center;
-  line-height:30px;
   color: #00579c;
 }
 .tab_con{
-  padding-left:0px;padding-right:0px;width: 614px; height: 279px;overflow:hidden;
+  background:#fff;
+  padding-left:0px;padding-right:0px;width: 612px; height: 279px;overflow:hidden;
   -webkit-box-shadow: 0px 4px 10px #999;
   -moz-box-shadow: 0px 4px 10px #999;
   box-shadow: 0px 4px 10px #999;
+}
+.bottom_bg{
+  background:url(homepage_down_bg.jpg) repeat-x top  #ffffff;
+  padding:18px;
+  height:900px;
+}
+//#carousel-generic .carousel-inner .item{
+//  width:209px !important;height:180px !important;
+//  margin:0;
+//  float:left;
+//  border-width:0px;
+//}
+#carousel-generic{
+  width:625px;height:182px; overflow:hidden;
+}
+#carousel-generic .carousel-control.left,#carousel-generic .carousel-control.right  {
+  background-image:none !important;
+}
+#carousel-generic .carousel-indicators {display:none;}
+#carousel-generic .prev_arrow{
+  background:url(prev_arrow.png) no-repeat !important;
+  height:45px;
+  width:48px;
+  margin-top:65px;
+  margin-left:-45px;
+  display:inline-block;
+}
+.prev_arrow:hover{
+  background:url(prev_arrow_hover.png) no-repeat !important;
+  height:45px;
+  width:48px;
+  margin-top:65px;
+  margin-left:-45px;
+  display:inline-block;
+}
+.next_arrow{
+  background:url(next_arrow.png) no-repeat !important;
+  height:45px;
+  width:48px;
+  margin-top:65px;
+  margin-right:-52px;
+  display:inline-block;
+}
+.next_arrow:hover{
+  background:url(next_arrow_hover.png) no-repeat !important;
+  height:45px;
+  width:48px;
+  margin-top:65px;
+  margin-right:-52px;
+  display:inline-block;
+}
+#carousel-generic .carousel-control {
+  opacity:1;
+}
+.impack{
+  width:312px;
+  height:auto;
+}
+#Impack_box{
+  background:url(blue_bg.png) no-repeat;
+  width:151px;height:96px;
 }

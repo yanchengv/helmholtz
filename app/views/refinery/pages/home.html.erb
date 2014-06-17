@@ -20,14 +20,5 @@
 
   <!--</section>-->
 <!--</section>-->
-<% for stickypage in sticky_pages %>
-    <%if !stickypage.content_for(:Impact).nil?%>
-<div id="Impack_box" class="fl">
-<a href="/<%=stickypage.url[:path].join('/') %>">
-<%=raw stickypage.content_for(:Impact) %>
-</a>
-</div>
- <% end %>
-<% end %>
 
 <%= render partial: 'refinery/hometab'%>
