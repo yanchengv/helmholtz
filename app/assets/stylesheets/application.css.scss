@@ -33,8 +33,8 @@ body {
   background: url(bg_main.png) repeat-x #e5e5e5; //first_page
   //background: url(bg_main_homepage.png) repeat-x #e5e5e5; //homeppage
 }
-#home-page{
-  background: url(bg_main_homepage.png) repeat-x #e5e5e5; //homeppage
+.home-page{
+  background: url(bg_main_homepage.png) repeat-x #e5e5e5 !important; //homeppage
 }
 #bg{background: #fff;padding-bottom:100px;}
 #body, #side_body {
