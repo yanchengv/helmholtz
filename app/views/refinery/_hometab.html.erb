@@ -5,14 +5,16 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
     <% istabactive=0%>
+
     <% for stickypage in sticky_pages %>
 
         <% if !stickypage.content_for(:hometabtitle).nil?%>
-            <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')%>
+            <% tab=stickypage.content_for(:hometabtitle)%>
+            <%# tab=Sanitize.clean(stickypage.content_for(:hometabtitle))%>
             <%if istabactive==0%>
-                <li class="active"><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
+                <li class="active"><a href="#<%=Digest::MD5.hexdigest(tab)%>" data-toggle="tab"><%=raw stickypage.content_for(:hometabtitle)%></a></li>
             <% else%>
-            <li ><a href="#<%=raw tab%>" data-toggle="tab"><%= tab%></a></li>
+            <li ><a href="#<%=Digest::MD5.hexdigest(tab)%>" data-toggle="tab"><%=raw stickypage.content_for(:hometabtitle)%></a></li>
         <% end %>
             <% istabactive+=1%>
         <% end %>
@@ -26,11 +28,12 @@
       <% isactive=0%>
       <% for stickypage in sticky_pages %>
           <% if !stickypage.content_for(:hometabtitle).nil?%>
-              <% tab=stickypage.content_for(:hometabtitle).gsub('</p>','').gsub('<p>','')  %>
+              <% tab=stickypage.content_for(:hometabtitle)%>
+              <%# tab=Sanitize.clean(stickypage.content_for(:hometabtitle))%>
               <%if isactive==0%>
-                  <div class="tab-pane active" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+                  <div class="tab-pane active" id="<%=Digest::MD5.hexdigest(tab)%>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
               <%else%>
-                  <div class="tab-pane" id="<%=raw tab %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+                  <div class="tab-pane" id="<%=Digest::MD5.hexdigest(tab) %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
               <% end %>
               <% isactive +=1%>
           <% end %>

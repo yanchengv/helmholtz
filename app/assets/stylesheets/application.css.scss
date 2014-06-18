@@ -548,7 +548,7 @@ body {
 @media screen and (min-width:320px) and (max-width:600px){
 
 }
-#hometabtitle{width: 612px;}
+#hometabtitle{width: 612px;margin-left:5px;}
 #hometabtitle .nav-tabs > li.active > a{
   background: url(bg_tabs_selected.png) no-repeat center center;
   padding: 0px 5px;
@@ -571,6 +571,7 @@ body {
 }
 .tab_con{
   background:#fff;
+  margin-left:5px !important;
   padding-left:0px;padding-right:0px;width: 612px; height: 279px;overflow:hidden;
   -webkit-box-shadow: 0px 4px 10px #999;
   -moz-box-shadow: 0px 4px 10px #999;
@@ -589,7 +590,7 @@ body {
 //  border-width:0px;
 //}
 #carousel-generic{
-  width:625px;height:182px; overflow:hidden;
+  width:627px;height:182px; overflow:hidden;
 }
 #carousel-generic .carousel-control.left,#carousel-generic .carousel-control.right  {
   background-image:none !important;
