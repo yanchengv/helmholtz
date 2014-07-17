@@ -125,19 +125,19 @@ hr{
     border-bottom:0px;
 }
 .telephone{
-    background:url(telefon.gif) no-repeat left center;
+    background:url(telefon.gif) no-repeat left center !important;
     padding-left:16px;
 }
 .fax{
-    background:url(icon-adress-fax.gif) no-repeat left center;
+    background:url(icon-adress-fax.gif) no-repeat left center !important;
     padding-left:16px;
 }
 .mail{
-    background:url(icon-adress-email.gif) no-repeat left center;
+    background:url(icon-adress-email.gif) no-repeat left center !important;
     padding-left:16px;
 }
 .arrow_a{
-    background: url(link_intern.gif) no-repeat left center;
+    background: url(link_intern.gif) no-repeat left center !important;
     padding-left:16px;
 }
 p{
@@ -171,4 +171,19 @@ p{
 }
 .fr{
     float:right;
+}
+.pdf{
+    background: url(icon_download.png) no-repeat left center !important;
+    padding-left:20px;
+}
+.bodytext_h {
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0;
+}
+.hyphenate_h{
+    font-family:Arial,sans-serif;
+    font-weight:normal !important;
+    color:#000000;
+    background:none;
 }
