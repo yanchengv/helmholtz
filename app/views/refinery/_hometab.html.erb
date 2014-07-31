@@ -31,9 +31,10 @@
               <% tab=stickypage.content_for(:hometabtitle)%>
               <%# tab=Sanitize.clean(stickypage.content_for(:hometabtitle))%>
               <%if isactive==0%>
-                  <div class="tab-pane active" id="<%=Digest::MD5.hexdigest(tab)%>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+                  <!--<div class="tab-pane active" id="<%#=Digest::MD5.hexdigest(tab)%>"> <a href="/<%#=stickypage.url[:path].join('/') %>"> <%#=raw stickypage.content_for(:hometab) %></a></div>-->
+                  <div class="tab-pane active" id="<%=Digest::MD5.hexdigest(tab)%>"><%=raw stickypage.content_for(:hometab) %></div>
               <%else%>
-                  <div class="tab-pane" id="<%=Digest::MD5.hexdigest(tab) %>"> <a href="/<%=stickypage.url[:path].join('/') %>"> <%=raw stickypage.content_for(:hometab) %></a></div>
+                  <div class="tab-pane" id="<%=Digest::MD5.hexdigest(tab) %>"> <%=raw stickypage.content_for(:hometab) %></div>
               <% end %>
               <% isactive +=1%>
           <% end %>
