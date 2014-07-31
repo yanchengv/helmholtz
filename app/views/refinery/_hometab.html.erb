@@ -86,7 +86,7 @@
     <span class="next_arrow"></span>
   </a>
 </div>
-    <p style="font-size: 20px;margin-bottom:10px;font-family: Arial,sans-serif;line-height: 22px;margin-top:30px;padding-bottom: 5px;">Be Well-Informed</p>
+    <p style="font-size: 20px;margin-bottom:10px;font-family: Arial,sans-serif;line-height: 22px;margin-top:30px;padding-bottom: 5px;">与我们互动</p>
     <% for stickypage in sticky_pages %>
         <%if !stickypage.content_for(:media).nil?%>
             <%=raw stickypage.content_for(:media) %>
@@ -101,9 +101,9 @@
   <% for stickypage in sticky_pages %>
       <%if !stickypage.content_for(:Impact).nil?%>
           <div id="Impack_box" class="fl">
-            <a href="/<%=stickypage.url[:path].join('/') %>">
+
               <%=raw stickypage.content_for(:Impact) %>
-            </a>
+
           </div>
       <% end %>
   <% end %>
