@@ -64,6 +64,9 @@ GEM
     globalize (3.0.4)
       activemodel (>= 3.0.0, < 4.0.0)
       activerecord (>= 3.0.0, < 4.0.0)
+    handle_invalid_percent_encoding_requests (1.0.2)
+      rack-utf8_sanitizer
+      rails (>= 3.1)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -87,6 +90,8 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-utf8_sanitizer (1.2.4)
+      rack (~> 1.0)
     rails (3.2.15)
       actionmailer (= 3.2.15)
       actionpack (= 3.2.15)
@@ -193,8 +198,10 @@ DEPENDENCIES
   bootstrap-sass (~> 3.0.2)
   coffee-rails (~> 3.2.1)
   dalli
+  handle_invalid_percent_encoding_requests
   jquery-rails
   mysql2
+  rack-utf8_sanitizer
   rails (= 3.2.15)
   refinerycms (= 2.1.1)
   refinerycms-acts-as-indexed (~> 1.0.0)

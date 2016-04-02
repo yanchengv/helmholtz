@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'https://gems.ruby-china.org'
 
 gem 'rails', '3.2.15'
 gem 'mysql2'
@@ -27,7 +27,8 @@ end
 gem 'jquery-rails'
 
 gem 'bootstrap-sass', '~> 3.0.2'
-
+gem 'rack-utf8_sanitizer'
+gem "handle_invalid_percent_encoding_requests"
 #gem 'sanitize', '~> 2.1.0'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
